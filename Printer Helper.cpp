@@ -10,10 +10,10 @@ int main()
     ofstream print(file_name);
     int page, slides_per_page;
     int print_page = 0;
-    cout << "How many slides does the document have?"
+    cout << "How many slides does the document have?"<<endl
          << ">>";
     cin >> page;
-    cout << "How many slides per page?"
+    cout << "How many slides per page?" <<endl
          << ">>";
     cin >> slides_per_page;
 
