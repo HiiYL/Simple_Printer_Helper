@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
     vector<int> odd, even;
+    bool add_page = false;
     string file_name("output.txt");
     ofstream print(file_name);
     int page, slides_per_page;
@@ -19,19 +20,25 @@ int main()
 
     int j = 1;
     while(j<page)   {
-    for(int i = 0;i < slides_per_page && j < page;i++,j++)
-        odd.push_back(j);
-    for(int i = 0;i < slides_per_page && j < page;i++,j++)
-        even.push_back(j);
-    print_page++;
+        add_page = true;
+        for(int i = 0;i < slides_per_page && j < page;i++,j++)  {
+            even.push_back(j);
+        }
+        for(int i = 0;i < slides_per_page && j < page;i++,j++)  {
+            odd.push_back(j);
+            add_page = false;
+
+        }
+        print_page++;
     }
-    print << "ODD"<<endl;
-    for (auto &i : odd)
-        print << i <<",";
-    print << endl;
-    print << "EVEN" <<endl;
+    if (add_page)
+        print << "(NOTE)Add an extra sheet of blank paper to the front of the documents when placing back into printer feed."<<endl;
+    print <<"EVEN" <<endl;
     for(auto &j : even)
         print << j <<",";
+    print <<endl<< "ODD"<<endl;
+    for (auto &i : odd)
+        print << i <<",";
     print << endl << "Sheets of Paper needed :" << print_page <<endl;
     cout << "Results printed to file named " << file_name <<endl;
     system("notepad.exe output.txt");
