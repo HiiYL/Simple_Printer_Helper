@@ -1,0 +1,5 @@
+1. Open the program, enter desired page amount and slides per page
+2. Program will group pages under even and odd
+3. Copy and paste page numbers from even category into print menu.
+4. After printing, flip all the paper over and place back into printer feed.
+5. Copy all page numbers from odd category and hit print.
